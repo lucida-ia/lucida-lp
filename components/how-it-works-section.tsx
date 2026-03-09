@@ -3,13 +3,35 @@
 import Image from "next/image";
 import HowItWorksCard from "./how-it-works-card";
 import { motion } from "motion/react";
+import {
+  CircleCheckBig,
+  FileText,
+  LaptopIcon,
+  LaptopMinimal,
+  Paperclip,
+} from "lucide-react";
+import { CardSpotlight } from "./ui/card-spotlight";
 
 export default function HowItWorksSection() {
   return (
     <section className="m-auto max-w-5xl mt-20 px-6 mb-24" id="how-it-works">
-      <h2 className="text-3xl md:text-4xl mb-8 font-instrument text-center">
-        4 passos simples para criar provas incríveis com a Lulu
-      </h2>
+      <div className="flex flex-col gap-2 text-center mb-8">
+        <h2 className="text-3xl md:text-4xl font-instrument text-center">
+          <Image
+            src="/ilustrations/Lulu-07.svg"
+            width={70}
+            height={70}
+            alt="Logo Lulu"
+            className="inline-block mx-2"
+          />{" "}
+          Tudo que você precisa para avaliar melhor
+        </h2>
+        <span>
+          Da criação à análise de resultados, a Lulu cobre cada etapa do
+          processo de avaliação educacional.
+        </span>
+      </div>
+
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -22,29 +44,115 @@ export default function HowItWorksSection() {
             },
           },
         }}
-        className="grid grid-cols-1 md:grid-cols-4 gap-8"
+        className="flex flex-col gap-4"
       >
-        <HowItWorksCard
-          imageSrc="/ilustrations/Lulu-13.svg"
-          title="Faça upload do seu material"
-          description="Envie PDFs, DOCs, textos ou vídeos. Nossa IA analisa automaticamente o conteúdo."
-          size={50}
-        />
-        <HowItWorksCard
-          imageSrc="/ilustrations/Lulu-08.svg"
-          title="Personalize sua prova"
-          description="Escolha formato, dificuldade e tipos de questões em poucos cliques."
-        />
-        <HowItWorksCard
-          imageSrc="/ilustrations/Lulu-02.svg"
-          title="Gere sua prova em segundos"
-          description="Nossa IA cria uma prova completa, pronta para imprimir ou compartilhar online."
-        />
-        <HowItWorksCard
-          imageSrc="/ilustrations/Lulu-05.svg"
-          title="Aplique e avalie facilmente"
-          description="Seja online ou offline, nossa plataforma ajuda a aplicar e corrigir as provas de forma eficiente."
-        />
+        <div className="flex flex-row gap-4">
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="border p-8 w-2/3 rounded-2xl space-y-2"
+          >
+            <h3 className="text-2xl text-primary">
+              Criação de provas simplificada
+            </h3>
+            <p className="text-gray-500 text-md">
+              Monte suas avaliações de forma simples utilizando seu próprio
+              material e modelos bem estruturados. Crie provas completas em
+              minutos, não em horas.
+            </p>
+          </motion.div>
+
+          <div className="flex flex-col w-1/3 gap-4">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="border p-8 rounded-2xl space-y-2"
+            >
+              <h3 className="text-2xl text-primary">
+                Aplicação online e offline
+              </h3>
+              <p className="text-gray-500 text-md">
+                Aplique provas em qualquer cenário. Seus alunos podem responder
+                pelo navegador ou em folhas impressas com gabarito automatizado.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="border p-6 rounded-2xl space-y-2"
+            >
+              <h3 className="text-2xl text-primary">Correção automática</h3>
+              <p className="text-gray-500">
+                Resultados instantâneos com correção inteligente. Questões
+                objetivas corrigidas automaticamente e suporte para rubricas em
+                questões dissertativas.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+
+        <div className="flex flex-row gap-4">
+          <div className="flex flex-col w-1/3 gap-4">
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="border p-8 rounded-2xl space-y-2"
+            >
+              <h3 className="text-2xl text-primary">
+                Gestão de turmas e alunos
+              </h3>
+              <p className="text-gray-500 text-md">
+                Organize turmas, gerencie matrículas e acompanhe cada aluno
+                individualmente. Controle total sobre suas classes em um painel
+                centralizado.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="border p-6 rounded-2xl space-y-2"
+            >
+              <h3 className="text-2xl text-primary">Exportação de dados</h3>
+              <p className="text-gray-500">
+                Exporte relatórios, notas e resultados em PDF, CSV ou Excel.
+                Integre facilmente com outros sistemas e ferramentas que você já
+                utiliza.
+              </p>
+            </motion.div>
+          </div>
+
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="border p-8 w-2/3 rounded-2xl space-y-2"
+          >
+            <h3 className="text-2xl text-primary">Análises e relatórios</h3>
+            <p className="text-gray-500 text-md">
+              Dashboards detalhados com desempenho por turma, aluno e questão.
+              Identifique padrões, dificuldades e evolução ao longo do tempo.
+            </p>
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );
