@@ -6,6 +6,7 @@ import { motion } from "motion/react";
 import {
   CircleCheckBig,
   FileText,
+  FileUp,
   LaptopIcon,
   LaptopMinimal,
   Paperclip,
@@ -14,7 +15,7 @@ import { CardSpotlight } from "./ui/card-spotlight";
 
 export default function HowItWorksSection() {
   return (
-    <section className="m-auto max-w-5xl mt-20 px-6 mb-24" id="how-it-works">
+    <section className="m-auto max-w-5xl pt-20 px-6 mb-24" id="how-it-works">
       <div className="flex flex-col gap-2 text-center mb-8">
         <h2 className="text-3xl md:text-4xl font-instrument text-center">
           <Image
@@ -63,6 +64,25 @@ export default function HowItWorksSection() {
               material e modelos bem estruturados. Crie provas completas em
               minutos, não em horas.
             </p>
+
+            <div className="grid gap-2 mt-2">
+              <div className="border rounded-md p-8 font-instrument text-2xl hover:bg-primary/10 transition-colors group hover:border-primary">
+                <strong className="font-sans text-xl text-primary group-hover">
+                  1.{" "}
+                </strong>
+                Envie seu conteúdo
+              </div>
+
+              <div className="border rounded-md p-8 font-instrument text-2xl hover:bg-primary/10 transition-colors group hover:border-primary">
+                <strong className="font-sans text-xl text-primary">2. </strong>
+                Personalize sua Avaliação
+              </div>
+
+              <div className="border rounded-md p-8 font-instrument text-2xl hover:bg-primary/10 transition-colors group hover:border-primary">
+                <strong className="font-sans text-xl text-primary">3. </strong>
+                Revise e gere sua avaliação
+              </div>
+            </div>
           </motion.div>
 
           <div className="flex flex-col w-1/3 gap-4">

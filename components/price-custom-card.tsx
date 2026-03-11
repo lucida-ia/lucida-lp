@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "./ui/button";
 
 export default function PriceCustomCard() {
@@ -10,7 +11,11 @@ export default function PriceCustomCard() {
         </p>
       </div>
 
-      <Button variant={"outline"}>Entre em Contato</Button>
+      <Link href={"/contact"} className="w-full">
+        <Button variant={"outline"} className="w-full">
+          Entre em Contato
+        </Button>
+      </Link>
     </div>
   );
 }
