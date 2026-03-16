@@ -26,7 +26,7 @@ export default function PriceCard({
         <p className="text-sm text-gray-500">{planText}</p>
       </div>
 
-      <Button>Escolher Plano</Button>
+      <Button disabled={true}>Escolher Plano</Button>
     </div>
   );
 }

@@ -12,11 +12,13 @@ import Image from "next/image";
 import { DoorOpen } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { Button } from "./button";
 
 export type NavItem = {
   name: string;
   link: string;
   icon?: JSX.Element;
+  disabled?: boolean;
   type: "nav" | "cta";
 };
 
@@ -95,16 +97,21 @@ export const FloatingNav = ({
             {navItems
               .filter((item) => item.type === "nav")
               .map((navItem, idx: number) => (
-                <Link
-                  key={`link-${idx}`}
-                  href={navItem.link}
+                <Button
+                  key={`button-${idx}`}
+                  variant="ghost"
+                  size="sm"
                   className={cn(
                     "relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-white/10 dark:hover:text-white",
+                    navItem.disabled && "opacity-50 cursor-not-allowed",
                   )}
+                  disabled={navItem.disabled ?? false}
                 >
-                  <span className="block sm:hidden ">{navItem.icon}</span>
-                  <span className="hidden sm:block">{navItem.name}</span>
-                </Link>
+                  <Link key={`link-${idx}`} href={navItem.link}>
+                    <span className="block sm:hidden ">{navItem.icon}</span>
+                    <span className="hidden sm:block">{navItem.name}</span>
+                  </Link>
+                </Button>
               ))}
           </div>
 
@@ -113,23 +120,22 @@ export const FloatingNav = ({
 
           {/* CTA Button */}
 
-          <a
-            key={`link-login}`}
-            href={"/login"}
-            className={cn(
-              " relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-white/10 dark:hover:text-white",
-            )}
-          >
+          <a href="https://app.lucidaexam.com/sign-in">
             <span className="block sm:hidden">
-              {
-                <DoorOpen className="h-4 w-4 text-neutral-500 dark:text-white" />
-              }
+              <DoorOpen className="h-4 w-4 text-neutral-500 dark:text-white" />
             </span>
-            <span className="hidden sm:block">Entrar</span>
+            <span
+              className={cn(
+                "hidden sm:flex relative items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-white/10 dark:hover:text-white",
+              )}
+            >
+              Entrar
+            </span>
           </a>
 
           <Link href={"/prices"}>
-            <button className="cursor-pointer relative rounded-full bg-primary px-4 py-2 text-sm font-medium text-white transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-neutral-900/20 dark:bg-white dark:text-black dark:hover:bg-neutral-100 dark:hover:shadow-white/20 hidden sm:inline-flex">
+            <button
+            className="cursor-pointer relative rounded-full bg-primary px-4 py-2 text-sm font-medium text-white transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-neutral-900/20 dark:bg-white dark:text-black dark:hover:bg-neutral-100 dark:hover:shadow-white/20 hidden sm:inline-flex disabled:opacity-50 disabled:cursor-not-allowed">
               <span>Começar agora!</span>
             </button>
           </Link>

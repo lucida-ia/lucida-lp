@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -36,8 +37,10 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${instrumentSerif.variable} ${jetBrainsMono.variable} antialiased font-sans scroll-smooth`}
       >
-        <Navbar />
-        {children}
+        <ClerkProvider>
+          <Navbar />
+          {children}
+        </ClerkProvider>
       </body>
     </html>
   );
