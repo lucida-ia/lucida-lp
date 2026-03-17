@@ -13,6 +13,10 @@ import {
 import { motion } from "motion/react";
 import Link from "next/link";
 
+import Avatar1 from "@/public/testemonials/avatar1.jpg";
+import Avatar2 from "@/public/testemonials/avatar2.jpg";
+import Avatar3 from "@/public/testemonials/avatar3.jpg";
+
 export default function HeroChildren() {
   return (
     <motion.div
@@ -25,24 +29,20 @@ export default function HeroChildren() {
       <div className="hidden md:flex border py-2 px-4 rounded-full w-fit m-auto bg-white  flex-row items-center gap-2 md:text-sm mb-4">
         <AvatarGroup>
           <Avatar>
-            <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+            <AvatarImage src={Avatar1.src} alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           <Avatar>
-            <AvatarImage
-              src="https://github.com/maxleiter.png"
-              alt="@maxleiter"
-            />
+            <AvatarImage src={Avatar2.src} alt="@maxleiter" />
             <AvatarFallback>LR</AvatarFallback>
           </Avatar>
           <Avatar>
-            <AvatarImage
-              src="https://github.com/evilrabbit.png"
-              alt="@evilrabbit"
-            />
+            <AvatarImage src={Avatar3.src} alt="@evilrabbit" />
             <AvatarFallback>ER</AvatarFallback>
           </Avatar>
-          <AvatarGroupCount>+3</AvatarGroupCount>
+          <AvatarGroupCount className="font-bold bg-primary text-primary-foreground">
+            . . .
+          </AvatarGroupCount>
         </AvatarGroup>
         Junte-se aos mais de 3 mil professores que já usam a Lulu
       </div>
