@@ -18,13 +18,11 @@ export default function SocialProofSection() {
 
       <div className="m-auto mt-4 px-6 bg-accent p-8 rounded-lg gap-2 flex flex-col">
         <p className="text-center max-w-2xl m-auto text-xl font-instrument">
-          "Minha experiência tem sido bastante positiva. O site é realmente
-          funcional e o suporte técnico é muito prestativo, atencioso e de
-          resposta rápida. Tem me ajudado bastante na aula, criando simulados
-          online onde posso avaliar os alunos instantaneamente, com a avaliação
-          já pronta. Tem sido muito interessante para o desenvolvimento da aula,
-          principalmente por gerar atividades inéditas, que não são apenas
-          cópias da internet."
+          "A plataforma tem me ajudado bastante em sala de aula, especialmente
+          na criação de simulados online, o que me permite avaliar os alunos de
+          forma instantânea, com a correção já pronta. Além disso, tem
+          contribuído muito para o desenvolvimento das aulas por gerar
+          atividades inéditas, que vão além de simples cópias da internet."
         </p>
 
         <Image
