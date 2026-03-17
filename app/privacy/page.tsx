@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Privacy() {
   return (
-    <section className="m-auto max-w-5xl mt-40 mb-20">
+    <section className="m-auto max-w-5xl mt-40 mb-20 px-6 sm:px-0">
       <motion.div
         initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}

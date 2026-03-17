@@ -5,7 +5,7 @@ import { TabsContent } from "./ui/tabs";
 export default function TabsAnnual() {
   return (
     <TabsContent value="annual">
-      <div className=" grid grid-cols-4 w-full gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4">
         <PriceCard
           title="Básico"
           description="Estruture suas avaliações e economize tempo no dia a dia."

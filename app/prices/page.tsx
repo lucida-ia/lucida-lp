@@ -13,7 +13,7 @@ export default function Prices() {
   const [value, setValue] = React.useState("monthly");
 
   return (
-    <section className="m-auto max-w-5xl mt-40">
+    <section className="m-auto max-w-5xl mt-20 md:mt-40 px-6">
       <motion.div
         initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -29,7 +29,7 @@ export default function Prices() {
         </div>
 
         <Tabs value={value} onValueChange={setValue} className="w-full">
-          <TabsList className="m-auto mb-10">
+          <TabsList className="m-auto mb-10 grid grid-cols-2 sm:flex h-auto gap-1">
             <TabsTrigger value="monthly">Mensal</TabsTrigger>
             <TabsTrigger value="quarterly">
               Trimestral

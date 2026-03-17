@@ -40,6 +40,7 @@ function digitsOnly(value: string) {
  * - Limita a 11 dígitos
  * - (DD) 9XXXX-XXXX (11 dígitos) ou (DD) XXXX-XXXX (10 dígitos)
  */
+
 function formatBRPhone(raw: string) {
   const d = digitsOnly(raw).slice(0, 11);
 
@@ -69,24 +70,29 @@ export function InstitutionalContactForm() {
   });
 
   const isSubmitting = form.formState.isSubmitting;
+  const [submitError, setSubmitError] = React.useState<string | null>(null);
+  const [submitSuccess, setSubmitSuccess] = React.useState(false);
 
   const onSubmit = async (values: ContactFormValues) => {
-    // Exemplo de payload: você pode mandar phoneDigits também, se quiser.
-    const payload = {
-      ...values,
-      phoneDigits: digitsOnly(values.phone),
-    };
+    setSubmitError(null);
+    setSubmitSuccess(false);
 
-    console.log("submitted", payload);
+    const res = await fetch("/api/contact/institution", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    });
 
-    // Exemplo:
-    // const res = await fetch("/api/contact", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(payload),
-    // });
-    // if (!res.ok) throw new Error("Falha ao enviar");
-    // form.reset();
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      setSubmitError(
+        data.error ?? "Falha ao enviar mensagem. Tente novamente mais tarde.",
+      );
+      return;
+    }
+
+    setSubmitSuccess(true);
+    form.reset();
   };
 
   return (
@@ -268,6 +274,15 @@ export function InstitutionalContactForm() {
             </FormItem>
           )}
         />
+
+        {submitError && (
+          <p className="text-sm text-destructive">{submitError}</p>
+        )}
+        {submitSuccess && (
+          <p className="text-sm text-green-600">
+            Mensagem enviada com sucesso! Em breve entraremos em contato.
+          </p>
+        )}
 
         <Button type="submit" disabled={isSubmitting} className="w-full">
           {isSubmitting ? "Enviando..." : "Enviar mensagem"}

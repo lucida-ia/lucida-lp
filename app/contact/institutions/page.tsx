@@ -13,20 +13,20 @@ export default function Institution() {
   );
 
   return (
-    <section className="m-auto max-w-5xl mt-40 mb-10">
+    <section className="m-auto max-w-5xl mt-20 md:mt-40 mb-10 px-6">
       <motion.div
         initial={{ opacity: 0, y: 15, filter: "blur(4px)" }}
         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         exit={{ opacity: 0, y: -15, filter: "blur(4px)" }}
         transition={{ duration: 0.25 }}
       >
-        <h2 className="text-3xl text-primary mb-6">
+        <h2 className="text-2xl md:text-3xl text-primary mb-6">
           Soluções personalizadas para{" "}
           <span className="font-bold">instituições de ensino</span> e{" "}
           <span className="font-bold">empresas</span>
         </h2>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="text-sm text-gray-500 gap-4 flex flex-col">
             <p className="">
               A Lucida se adapta à realidade de{" "}
